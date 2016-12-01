@@ -46,7 +46,6 @@ def get_file_name(path):
 
 # 获取文件内容的辅助程序，直接对文件操作。数据集中文件编码不一
 # 这里我的处理是只处理GBK文件。
-# 集群的话应该修改成读取数据库
 def _get_file_content(path):
   try:
     content = ''
