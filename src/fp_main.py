@@ -5,11 +5,6 @@ import re
 from collections import Counter
 from itertools import islice
 
-'''
-预处理语料库，获取词语的IDF。
-复杂度太高了，单机跑起来很吃力。
-'''
-
 # 继承list，解决链式extend的问题。
 class ListWithLinkExtend(list):
   def extend(self, value):
@@ -86,11 +81,6 @@ def get_file_dictionary(files):
 
 # 获取每个词语的IDF
 def get_IDF(dictionary, files):
-  # 获取每一个单词的IDF
-  # IDFw = log2(D/Dw)
-  # Dw这样算：遍历词典，把词典中的某个词扔到files中挨个找，然后统计，最后append到list IDF中
-  # list IDF的元素类型为dict
-  # 很好写吧？搞成函数式
   # 把files中的每一个file经分词处理成一个单词的集合
   # 将files中的每一个文章中的单词搞成(k,v)形式，类型是set，k是单词，v是1。
   # reduce的时候强转成dict，用Counter的功能，就可以按k合并掉v，并且v的操作是相加。
